@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30320.27
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aufgabe4b_Breitensuche", "Aufgabe4b_Breitensuche\Aufgabe4b_Breitensuche.csproj", "{1C4589C0-9108-44F1-B1FE-62623011DD56}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1C4589C0-9108-44F1-B1FE-62623011DD56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C4589C0-9108-44F1-B1FE-62623011DD56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C4589C0-9108-44F1-B1FE-62623011DD56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C4589C0-9108-44F1-B1FE-62623011DD56}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6CBE084D-5D62-43E5-A303-666A4D621780}
+	EndGlobalSection
+EndGlobal
