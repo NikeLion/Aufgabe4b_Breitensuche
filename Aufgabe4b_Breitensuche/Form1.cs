@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Collections;
+using System.Threading;
 
 namespace Aufgabe4b_Breitensuche
 {
@@ -68,11 +69,16 @@ namespace Aufgabe4b_Breitensuche
         }
         public void ausgabeSteuerung(int delta)
         {
-            int alteposition = richTextBox1.Find("@");
-            richTextBox1.SelectedText = " ";
-            richTextBox1.Select(alteposition + delta, 1);
-            richTextBox1.SelectionColor = Color.Red;
-            richTextBox1.SelectedText = "@";
+            if (delta != 0)
+            {
+
+                Console.WriteLine("Spielerposition Dargestellt");
+                int alteposition = richTextBox1.Find("@");
+                richTextBox1.SelectedText = " ";
+                richTextBox1.Select(alteposition + delta, 1);
+                richTextBox1.SelectionColor = Color.Red;
+                richTextBox1.SelectedText = "@";
+            }
 
         }
 
@@ -87,6 +93,12 @@ namespace Aufgabe4b_Breitensuche
         {
             Controller maze = new Controller();
             maze.start();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Controller maze = new Controller();
+
             maze.automatisch();
         }
     }

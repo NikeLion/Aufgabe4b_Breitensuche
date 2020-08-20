@@ -19,7 +19,8 @@ namespace Aufgabe4b_Breitensuche
         Hashtable hashtable = new Hashtable();
         public void breitenSuche()
         {   //erste Position in Warteschlage schieben
-
+            warteschlange = new Queue();
+            hashtable = new Hashtable();
             (int, int) koords = meinSpieler.getSpieler();
             Console.WriteLine("spieler bei: " + koords);
             Point p = new Point();
@@ -147,27 +148,41 @@ namespace Aufgabe4b_Breitensuche
                 koords = meinSpieler.getSpieler();
                 //int xDelta, yDelta;
                 c++;
-                Console.WriteLine(c + ". Step: " + step.ToString());
                 if (!meinSpielfeld.getEnde())
                 {
+                    if (step.Y - koords.Item2 < 2 && step.Y - koords.Item2 > 0)
+                    {
+                        switch (step.X - koords.Item1)
+                        {
+                            case -1:
+                                Console.WriteLine(c + ". Step: " + step.ToString());
 
-                    switch (step.X - koords.Item1)
-                    {
-                        case -1:
-                            meineFunktionen.spielerSteuerung(step.X, step.Y, -((meinSpielfeld.getHoehe()) + 1));
-                            break;
-                        case +1:
-                            meineFunktionen.spielerSteuerung(step.X, step.Y, +((meinSpielfeld.getHoehe()) + 1));
-                            break;
+                                meineFunktionen.spielerSteuerung(step.X, step.Y, -((meinSpielfeld.getHoehe()) + 1));
+                                break;
+                            case +1:
+                                Console.WriteLine(c + ". Step: " + step.ToString());
+
+                                meineFunktionen.spielerSteuerung(step.X, step.Y, +((meinSpielfeld.getHoehe()) + 1));
+                                break;
+                        }
                     }
-                    switch (step.Y - koords.Item2)
+                    if (step.X - koords.Item1 < 2 && step.X - koords.Item1 > 0)
                     {
-                        case -1:
-                            meineFunktionen.spielerSteuerung(step.X, step.Y, -1);
-                            break;
-                        case +1:
-                            meineFunktionen.spielerSteuerung(step.X, step.Y, +1);
-                            break;
+                        switch (step.Y - koords.Item2)
+                        {
+                            case -1:
+
+
+                                Console.WriteLine(c + ". Step: " + step.ToString());
+
+                                meineFunktionen.spielerSteuerung(step.X, step.Y, -1);
+                                break;
+                            case +1:
+                                Console.WriteLine(c + ". Step: " + step.ToString());
+
+                                meineFunktionen.spielerSteuerung(step.X, step.Y, +1);
+                                break;
+                        }
                     }/*
                 else
                 {

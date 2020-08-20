@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Collections;
+using System.Threading;
 
 namespace Aufgabe4b_Breitensuche
 {
@@ -90,6 +91,7 @@ namespace Aufgabe4b_Breitensuche
                 Console.WriteLine("Spieler bei: " + neuX + " " + neuY);
                 //Console.WriteLine(delta);
                 Form1._Form1.ausgabeSteuerung(delta);
+                //Thread.Sleep(500);
             }
 
 

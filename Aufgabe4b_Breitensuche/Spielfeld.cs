@@ -87,12 +87,22 @@ namespace Aufgabe4b_Breitensuche
         }
         public bool getEnde()
         {
-            return (itemsUebrig == 0);
-            //return (!search('.')) ;
+            if (itemsUebrig == 95)
+            {
+
+                Console.WriteLine("" + itemsUebrig);
+                return (itemsUebrig == 0);
+            }
+            else
+            {
+                Console.WriteLine("" + itemsUebrig);
+                return (itemsUebrig == 0);
+                //return (!search('.')) ;}
+            }
+
+
+            #endregion
         }
 
-
-        #endregion
     }
-
 }

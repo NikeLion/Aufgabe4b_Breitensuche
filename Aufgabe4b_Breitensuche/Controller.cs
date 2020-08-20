@@ -27,10 +27,14 @@ namespace Aufgabe4b_Breitensuche
 
         public void automatisch()
         {
-            while (!meinSpielfeld.getEnde())
+            
+            /*while (!meinSpielfeld.getEnde())
             {
                 meinComputerPlayer.breitenSuche();
-            }
+            }*/
+            Console.WriteLine("Alles gegessen°!°");
+            meinComputerPlayer.breitenSuche();
+
         }
         public void start()
         {
