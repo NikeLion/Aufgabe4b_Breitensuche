@@ -68,7 +68,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CodeFile1.cs" />
     <Compile Include="ComputerPlayer.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="Form1.cs">
