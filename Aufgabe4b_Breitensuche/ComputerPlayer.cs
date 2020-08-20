@@ -66,6 +66,8 @@ namespace Aufgabe4b_Breitensuche
                         warteschlange.Enqueue(p);
 
                         hashtable.Add(p, check);
+                        Console.WriteLine("to hashtable: " + p.ToString() + check);
+
                     }
                     #endregion
                     #region Check Links
@@ -79,6 +81,8 @@ namespace Aufgabe4b_Breitensuche
                         warteschlange.Enqueue(p);
 
                         hashtable.Add(p, check);
+                        Console.WriteLine("to hashtable: " + p.ToString() + check);
+
                     }
                     #endregion
                     #region Check Rechts
@@ -92,6 +96,8 @@ namespace Aufgabe4b_Breitensuche
                         warteschlange.Enqueue(p);
 
                         hashtable.Add(p, check);
+                        Console.WriteLine("to hashtable: " + p.ToString() + check);
+
                     }
                     #endregion
                     #endregion
@@ -150,7 +156,7 @@ namespace Aufgabe4b_Breitensuche
                 c++;
                 if (!meinSpielfeld.getEnde())
                 {
-                    if (step.Y - koords.Item2 < 2 && step.Y - koords.Item2 > 0)
+                    if (step.Y - koords.Item2 == 0)
                     {
                         switch (step.X - koords.Item1)
                         {
@@ -158,6 +164,7 @@ namespace Aufgabe4b_Breitensuche
                                 Console.WriteLine(c + ". Step: " + step.ToString());
 
                                 meineFunktionen.spielerSteuerung(step.X, step.Y, -((meinSpielfeld.getHoehe()) + 1));
+                                
                                 break;
                             case +1:
                                 Console.WriteLine(c + ". Step: " + step.ToString());
@@ -166,7 +173,7 @@ namespace Aufgabe4b_Breitensuche
                                 break;
                         }
                     }
-                    if (step.X - koords.Item1 < 2 && step.X - koords.Item1 > 0)
+                    if (step.X - koords.Item1 == 0)
                     {
                         switch (step.Y - koords.Item2)
                         {
@@ -183,6 +190,7 @@ namespace Aufgabe4b_Breitensuche
                                 meineFunktionen.spielerSteuerung(step.X, step.Y, +1);
                                 break;
                         }
+                        return;
                     }/*
                 else
                 {
