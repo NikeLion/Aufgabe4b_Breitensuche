@@ -23,8 +23,13 @@ namespace Aufgabe4b_Breitensuche
             //richTextBox1.Visible = false;
         }
         public static Form1 _Form1;
+        public System.Windows.Forms.Timer t1 = new System.Windows.Forms.Timer(); // Timer anlegen
 
-
+        public void labelAusgabe(string ausgabe)
+        {
+            label_Countdown.Text = ausgabe;
+        }
+        
         public void ausgabe(char[,] spielfeld)
         {
             richTextBox1.Enabled = false;
@@ -93,15 +98,20 @@ namespace Aufgabe4b_Breitensuche
         {
             Controller maze = new Controller();
             maze.start();
+
+            t1.Interval = 1000; // Intervall festlegen, hier 100 ms
+            t1.Tick += new EventHandler(maze.counter); // Eventhandler ezeugen der beim Timerablauf aufgerufen wird
+            t1.Start();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Controller maze = new Controller();
 
-            maze.automatisch();
+           // maze.automatisch();
 
         }
+
     }
 
 }

@@ -52,8 +52,7 @@ namespace Aufgabe4b_Breitensuche
                         warteschlange.Enqueue(p);
 
                         hashtable.Add(p, check);
-                       // Console.WriteLine("to hashtable: " + p.ToString() + check);
-                    }
+                         }
                     #endregion
                     #region Check Unten
                     checkTemp.X = check.X - 1;
@@ -66,8 +65,7 @@ namespace Aufgabe4b_Breitensuche
                         warteschlange.Enqueue(p);
 
                         hashtable.Add(p, check);
-                        //Console.WriteLine("to hashtable: " + p.ToString() + check);
-
+                       
                     }
                     #endregion
                     #region Check Links
@@ -81,8 +79,7 @@ namespace Aufgabe4b_Breitensuche
                         warteschlange.Enqueue(p);
 
                         hashtable.Add(p, check);
-                        //Console.WriteLine("to hashtable: " + p.ToString() + check);
-
+                        
                     }
                     #endregion
                     #region Check Rechts
@@ -96,8 +93,7 @@ namespace Aufgabe4b_Breitensuche
                         warteschlange.Enqueue(p);
 
                         hashtable.Add(p, check);
-                        //Console.WriteLine("to hashtable: " + p.ToString() + check);
-
+                       
                     }
                     #endregion
                     #endregion
@@ -108,52 +104,27 @@ namespace Aufgabe4b_Breitensuche
                     break;
                 }
 
-                /*if ((spielerX, spielerY] != '#' && !hashtable.ContainsKey(spielerX, spielerY)
- 
-               {
-                    //Nachbarn in die Warteschlagen laden
-                    warteschlange.Enqueue(spielerX, spielerY);
-                    warteschlange.Enqueue(spielerX - 1, spielerY);
-                    warteschlange.Enqueue(spielerX - 1, spielerY - 1);
-                    warteschlange.Enqueue(spielerX, spielerY + 1);
-                    warteschlange.Enqueue(spielerX + 1, spielerY + 1);
-
-
-                }*/
             }
         }
         public void wegfinden(Point ziel)
         {
             Stack myStack = new Stack(hashtable.Count);
             Point temp;
-            Point player = new Point();
+            Point spieler = new Point();
             myStack.Push(ziel);
             temp = ziel;
-            player.X = meinSpieler.getSpieler().Item1;
-            player.Y = meinSpieler.getSpieler().Item2;
+            spieler.X = meinSpieler.getSpieler().Item1;
+            spieler.Y = meinSpieler.getSpieler().Item2;
 
-            while ((Point)hashtable[temp] != player)
+            while ((Point)hashtable[temp] != spieler)
             {
                 myStack.Push(hashtable[temp]);
                 temp = (Point)hashtable[temp];
             }
-           /* foreach (Point htValues in hashtable.Values)
-            {
-                myStack.Push(htValues);
-
-                
-                if (!myStack.Contains(htValues))
-                {
-                    myStack.Push(htValues);
-                }
-                //Console.WriteLine(c + ". Step: " + htValues.ToString());
-            }*/
-
             wegLaufen(myStack);
         }
         public void wegLaufen(Stack myStack)
         {
-            //Stack myStack = new Stack(hashtable.Count);
             Point step = new Point();
             (int, int) koords;
 
@@ -163,7 +134,6 @@ namespace Aufgabe4b_Breitensuche
                 step = (Point)myStack.Pop();
                 Console.WriteLine("Stack Step: " + step);
                 koords = meinSpieler.getSpieler();
-                //int xDelta, yDelta;
                 c++;
                 if (!meinSpielfeld.getEnde())
                 {
@@ -172,14 +142,10 @@ namespace Aufgabe4b_Breitensuche
                         switch (step.X - koords.Item1)
                         {
                             case -1:
-                                //Console.WriteLine(c + ". Step: " + step.ToString());
-
                                 meineFunktionen.spielerSteuerung(step.X, step.Y, -((meinSpielfeld.getHoehe()) + 1));
-                                
+
                                 break;
                             case +1:
-                                //Console.WriteLine(c + ". Step: " + step.ToString());
-
                                 meineFunktionen.spielerSteuerung(step.X, step.Y, +((meinSpielfeld.getHoehe()) + 1));
                                 break;
                         }
@@ -189,26 +155,14 @@ namespace Aufgabe4b_Breitensuche
                         switch (step.Y - koords.Item2)
                         {
                             case -1:
-
-
-                               // Console.WriteLine(c + ". Step: " + step.ToString());
-
                                 meineFunktionen.spielerSteuerung(step.X, step.Y, -1);
                                 break;
                             case +1:
-                               // Console.WriteLine(c + ". Step: " + step.ToString());
-
                                 meineFunktionen.spielerSteuerung(step.X, step.Y, +1);
                                 break;
                         }
                         return;
-                    }/*
-                else
-                {
-                    Application.Exit();
-                }*/
-
-                    //Console.WriteLine(htValues.ToString());
+                    }
                 }
             }
         }

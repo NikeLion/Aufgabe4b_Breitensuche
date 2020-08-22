@@ -26,29 +26,58 @@ namespace Aufgabe4b_Breitensuche
         public static readonly Spielfeld meinSpielfeld = new Spielfeld();
         public static readonly ComputerPlayer meinComputerPlayer = new ComputerPlayer();
 
+        private int secCounter = 0;
+        private int startCountdown = 5;
+        private bool started = false;
+
+        public void counter(object sender, EventArgs e)
+        {
+            secCounter++;
+            if (secCounter < 5)
+            {
+                Form1._Form1.labelAusgabe("" + (startCountdown - secCounter));
+            }
+            else
+            {
+                Form1._Form1.labelAusgabe("" + (secCounter - startCountdown));
+                if (!started)
+                {
+
+                    started = true;
+
+                    automatisch();
+                    
+                }   
+            }
+
+        }
+
         public async void automatisch()
         {
-            
+
             while (!meinSpielfeld.getEnde())
             {
                 meinComputerPlayer.breitenSuche();
                 await Task.Delay(500);
             }
-            Console.WriteLine("Alles gegessen°!°");
-           // meinComputerPlayer.breitenSuche();
+            Form1._Form1.t1.Stop();
+            //MessageBoxButtons buttons = MessageBoxButtons.Yes;
+            MessageBoxButtons buttons = MessageBoxButtons.OK;
+            DialogResult result = MessageBox.Show("Alles gegessen°!°\nProgramm beenden?", "Finished in " + (secCounter-startCountdown) + " seconds.", buttons);
+            if (result == DialogResult.OK)
+            {
+                Form1._Form1.Close();
+            }
+            //Console.WriteLine("Alles gegessen°!°");
+            
 
         }
         public void start()
         {
             meinSpielfeld.setSpielfeldGanz(meineFunktionen.spielfeldEinlesen());
-
-            //(int, int) neueKoords = meinSpielfeld.getSpielerInSpielfeld();
             (int, int) neueKoords = (meinSpielfeld.getBreite() / 2, meinSpielfeld.getHoehe() / 2);
-            //(int, int) alteKoords = meinSpieler.getSpieler();
 
             meinSpieler.setSpieler(neueKoords.Item1, neueKoords.Item2);
-            //Console.WriteLine(neueKoords.Item1 + "; " + neueKoords.Item2);
-            // meineFunktionen.spielerSteuerung(neueKoords.Item1, neueKoords.Item2, 0);
             if (meinSpielfeld.getSpielfeld()[neueKoords.Item1, neueKoords.Item2] != '#')
             {
                 meinSpielfeld.setSpielfeld(neueKoords.Item1, neueKoords.Item2);
@@ -61,7 +90,6 @@ namespace Aufgabe4b_Breitensuche
 
             //Event für Tastendruck erzeugen und mit Methode verbinden
             Form1._Form1.KeyPreview = true;
-            //.KeyPreview = true;
             Form1._Form1.KeyPress +=
                 new KeyPressEventHandler(meinSpieler.bewegen);
 

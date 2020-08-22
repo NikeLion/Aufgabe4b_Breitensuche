@@ -89,10 +89,7 @@ namespace Aufgabe4b_Breitensuche
                     meinSpielfeld.setItemsUebrig(meinSpielfeld.getItemsUebrig() - 1);
                 }
                 meinSpielfeld.setSpielfeld(neuX, neuY);
-                //Console.WriteLine("Spieler bei: " + neuX + " " + neuY);
-                //Console.WriteLine(delta);
                 Form1._Form1.ausgabeSteuerung(delta);
-                //Thread.Sleep(500);
             }
 
 
