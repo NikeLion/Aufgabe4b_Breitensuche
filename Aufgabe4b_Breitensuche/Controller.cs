@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Collections;
+using System.Threading;
 
 namespace Aufgabe4b_Breitensuche
 {
@@ -25,15 +26,16 @@ namespace Aufgabe4b_Breitensuche
         public static readonly Spielfeld meinSpielfeld = new Spielfeld();
         public static readonly ComputerPlayer meinComputerPlayer = new ComputerPlayer();
 
-        public void automatisch()
+        public async void automatisch()
         {
             
-            /*while (!meinSpielfeld.getEnde())
+            while (!meinSpielfeld.getEnde())
             {
                 meinComputerPlayer.breitenSuche();
-            }*/
+                await Task.Delay(500);
+            }
             Console.WriteLine("Alles gegessen°!°");
-            meinComputerPlayer.breitenSuche();
+           // meinComputerPlayer.breitenSuche();
 
         }
         public void start()

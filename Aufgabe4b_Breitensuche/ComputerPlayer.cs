@@ -52,7 +52,7 @@ namespace Aufgabe4b_Breitensuche
                         warteschlange.Enqueue(p);
 
                         hashtable.Add(p, check);
-                        Console.WriteLine("to hashtable: " + p.ToString() + check);
+                       // Console.WriteLine("to hashtable: " + p.ToString() + check);
                     }
                     #endregion
                     #region Check Unten
@@ -66,7 +66,7 @@ namespace Aufgabe4b_Breitensuche
                         warteschlange.Enqueue(p);
 
                         hashtable.Add(p, check);
-                        Console.WriteLine("to hashtable: " + p.ToString() + check);
+                        //Console.WriteLine("to hashtable: " + p.ToString() + check);
 
                     }
                     #endregion
@@ -81,7 +81,7 @@ namespace Aufgabe4b_Breitensuche
                         warteschlange.Enqueue(p);
 
                         hashtable.Add(p, check);
-                        Console.WriteLine("to hashtable: " + p.ToString() + check);
+                        //Console.WriteLine("to hashtable: " + p.ToString() + check);
 
                     }
                     #endregion
@@ -96,7 +96,7 @@ namespace Aufgabe4b_Breitensuche
                         warteschlange.Enqueue(p);
 
                         hashtable.Add(p, check);
-                        Console.WriteLine("to hashtable: " + p.ToString() + check);
+                        //Console.WriteLine("to hashtable: " + p.ToString() + check);
 
                     }
                     #endregion
@@ -125,19 +125,29 @@ namespace Aufgabe4b_Breitensuche
         public void wegfinden(Point ziel)
         {
             Stack myStack = new Stack(hashtable.Count);
-
+            Point temp;
+            Point player = new Point();
             myStack.Push(ziel);
-            foreach (Point htValues in hashtable.Values)
+            temp = ziel;
+            player.X = meinSpieler.getSpieler().Item1;
+            player.Y = meinSpieler.getSpieler().Item2;
+
+            while ((Point)hashtable[temp] != player)
+            {
+                myStack.Push(hashtable[temp]);
+                temp = (Point)hashtable[temp];
+            }
+           /* foreach (Point htValues in hashtable.Values)
             {
                 myStack.Push(htValues);
 
-                /*
+                
                 if (!myStack.Contains(htValues))
                 {
                     myStack.Push(htValues);
-                }*/
+                }
                 //Console.WriteLine(c + ". Step: " + htValues.ToString());
-            }
+            }*/
 
             wegLaufen(myStack);
         }
@@ -151,6 +161,7 @@ namespace Aufgabe4b_Breitensuche
             while (myStack.Count != 0)
             {
                 step = (Point)myStack.Pop();
+                Console.WriteLine("Stack Step: " + step);
                 koords = meinSpieler.getSpieler();
                 //int xDelta, yDelta;
                 c++;
@@ -161,13 +172,13 @@ namespace Aufgabe4b_Breitensuche
                         switch (step.X - koords.Item1)
                         {
                             case -1:
-                                Console.WriteLine(c + ". Step: " + step.ToString());
+                                //Console.WriteLine(c + ". Step: " + step.ToString());
 
                                 meineFunktionen.spielerSteuerung(step.X, step.Y, -((meinSpielfeld.getHoehe()) + 1));
                                 
                                 break;
                             case +1:
-                                Console.WriteLine(c + ". Step: " + step.ToString());
+                                //Console.WriteLine(c + ". Step: " + step.ToString());
 
                                 meineFunktionen.spielerSteuerung(step.X, step.Y, +((meinSpielfeld.getHoehe()) + 1));
                                 break;
@@ -180,12 +191,12 @@ namespace Aufgabe4b_Breitensuche
                             case -1:
 
 
-                                Console.WriteLine(c + ". Step: " + step.ToString());
+                               // Console.WriteLine(c + ". Step: " + step.ToString());
 
                                 meineFunktionen.spielerSteuerung(step.X, step.Y, -1);
                                 break;
                             case +1:
-                                Console.WriteLine(c + ". Step: " + step.ToString());
+                               // Console.WriteLine(c + ". Step: " + step.ToString());
 
                                 meineFunktionen.spielerSteuerung(step.X, step.Y, +1);
                                 break;

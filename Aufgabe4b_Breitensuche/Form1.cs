@@ -72,7 +72,7 @@ namespace Aufgabe4b_Breitensuche
             if (delta != 0)
             {
 
-                Console.WriteLine("Spielerposition Dargestellt");
+                //Console.WriteLine("Spielerposition Dargestellt");
                 int alteposition = richTextBox1.Find("@");
                 richTextBox1.SelectedText = " ";
                 richTextBox1.Select(alteposition + delta, 1);
@@ -100,6 +100,7 @@ namespace Aufgabe4b_Breitensuche
             Controller maze = new Controller();
 
             maze.automatisch();
+
         }
     }
 

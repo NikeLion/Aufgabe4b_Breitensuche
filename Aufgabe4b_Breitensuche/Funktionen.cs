@@ -81,6 +81,7 @@ namespace Aufgabe4b_Breitensuche
         //übergabe Matrix und veränderung der Werte
         public void spielerSteuerung(int neuX, int neuY, int delta)
         {
+            Console.WriteLine("step: " + neuX + " " + neuY);
             if (meinSpielfeld.getSpielfeld()[neuX, neuY] != '#')
             {
                 if (meinSpielfeld.getSpielfeld()[neuX, neuY] == '.')
@@ -88,7 +89,7 @@ namespace Aufgabe4b_Breitensuche
                     meinSpielfeld.setItemsUebrig(meinSpielfeld.getItemsUebrig() - 1);
                 }
                 meinSpielfeld.setSpielfeld(neuX, neuY);
-                Console.WriteLine("Spieler bei: " + neuX + " " + neuY);
+                //Console.WriteLine("Spieler bei: " + neuX + " " + neuY);
                 //Console.WriteLine(delta);
                 Form1._Form1.ausgabeSteuerung(delta);
                 //Thread.Sleep(500);

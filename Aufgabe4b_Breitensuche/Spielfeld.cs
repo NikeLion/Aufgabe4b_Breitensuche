@@ -90,7 +90,7 @@ namespace Aufgabe4b_Breitensuche
             if (itemsUebrig == 95)
             {
 
-                Console.WriteLine("" + itemsUebrig);
+                //Console.WriteLine("" + itemsUebrig);
                 return (itemsUebrig == 0);
             }
             else
